@@ -5,8 +5,8 @@ import { collection, addDoc, getDocs, query, onSnapshot, deleteDoc, doc,} from "
 import { db } from "./firebase";
 
 interface Item {
-  name: string;
-  price: number | null; // Allow price to be either a number or null
+  name: any;
+  price: any | null; // Allow price to be either a number or null
   id?: any;
 }
 
