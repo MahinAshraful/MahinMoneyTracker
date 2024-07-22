@@ -18,18 +18,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-let analytics = getAnalytics(app);
-let firestore;
-if (firebaseConfig?.projectId) {
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-  if (app.name && typeof window !== 'undefined') {
-    analytics = getAnalytics(app);
-  }
-
-  // Access Firebase services using shorthand notation
-  firestore = getFirestore();
-}
-const db = getFirestore(app)
-export {db, analytics, firestore}
+export const db = getFirestore(app)
