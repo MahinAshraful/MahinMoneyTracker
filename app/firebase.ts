@@ -19,4 +19,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+if (typeof window !== "undefined") {
+  try {
+    getAnalytics(app);
+  } catch (error) {
+    console.error("Firebase Analytics is not supported in this environment:", error);
+  }
+}
 export const db = getFirestore(app)
