@@ -1,13 +1,13 @@
 'use client'
 import React from "react";
 import { useState, useEffect } from "react";
-import { collection, addDoc, getDocs, querySnapshot, query, onSnapshot, deleteDoc, doc,} from "firebase/firestore"; 
+import { collection, addDoc, getDocs, query, onSnapshot, deleteDoc, doc,} from "firebase/firestore"; 
 import { db } from "./firebase";
 
 interface Item {
   name: string;
   price: number | null; // Allow price to be either a number or null
-  id: any;
+  id?: any;
 }
 
 export default function Home() {
@@ -49,7 +49,7 @@ useEffect(() => {
 
     // Read total from itemsArr
     const calculateTotal = () => {
-      const totalPrice = itemsArr.reduce((sum, item) => sum + parseFloat(item.price), 0)
+      const totalPrice = itemsArr.reduce((sum: any, item: any) => sum + parseFloat(item.price), 0)
       setTotal(totalPrice)
     }
     calculateTotal()
